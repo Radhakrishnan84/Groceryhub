@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracking - GroceryHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Tracking.css">
+</head>
+<body>
+   <!-- Top Info Bar -->
+  <section class="top-bar">
+    <div class="left">
+      <span><img src="Groceries Images/Vector V.png" alt="Phone"> +91 87642 987687</span>
+      <span><img src="Groceries Images/Vector 1.png" alt="WA"> +91 87642 987687</span>
+    </div>
+    <div class="center">World Fastest online Shopping Destination</div>
+    <div class="right">
+      <span> Current Location <img src="Groceries Images/Vector.png" alt="Arrow" id="Arrow"></span>
+      <span> Account <img src="Groceries Images/Vector.png" alt="Arrow" id="Arrow"></span>
+      <div class="login-wrapper">
+  <img src="Groceries Images/SVG.png" alt="Avatar">
+  <span>Login/LogOut</span>
+</div>
+    </div>
+  </section>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="logo-container">
+      <img src="Groceries Images/Ellipse 1.png" alt="GroceryHub" class="logo" />
+      <h2>GroceryHub</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="Home.html" class="active">Home</a>
+      <a href="Categories.html">Categories</a>
+      <a href="Deals.html">Deals</a>
+    </nav>
+    <div class="icons">
+      <div><span><img src="Groceries Images/SEARCH.png" alt="Search"></span><br><small>Search</small></div>
+      <div onclick="showCart()"><span><img src="Groceries Images/Vector 8.png" alt="Cart"></span><br><small>Cart</small></div>
+      <div onclick="showCart()"><span><img src="Groceries Images/Vector O.png" alt="Like"></span><br><small>Liked</small></div>
+    </div>
+  </header>
+
+    <!-- Cart Overlay -->
+  <!-- Cart Overlay -->
+  <div class="overlay" id="cartOverlay">
+    <div class="cart-header">
+      <h1>My Cart</h1>
+      <h2 id="item-count">0 Items</h2>
+    </div>
+    <div class="cart-panel">
+      <div class="close-btn" onclick="hideCart()">✕</div>
+      <div class="cart-content">
+        <div class="cart-items" id="cart-items">
+          <!-- Product cards appear here -->
+        </div>
+        <div class="bill">
+          <h3>Bill Details</h3>
+          <div class="bill-details">
+            <p>Total qty ( <span id="total-qty">0</span> )</p>
+            <p>Subtotal: ₹<span id="total-price">0.00</span></p>
+            <p>Handling fee: ₹<span id="total-handling">0.00</span></p>
+            <p>To Pay: ₹<span id="total-pay">0.00</span>/-</p>
+          </div>
+          <button class="buy-now" onclick="buyNow()">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Product Section -->
+  <div class="product-container">
+    <div class="product-left">
+      <img src="Groceries Images/Jersey Badam Flavoured Milk 190ML.png" alt="Badam Milk">
+      <h3>Jersey Badam Flavoured Milk 190ML</h3>
+      <p>Order Placed....! ❤️</p>
+    </div>
+    <div class="product-right">
+      <h1>Secured CheckUp</h1>
+      <p><strong>Product Description :</strong></p>
+      <p>
+        Indulge in the rich and creamy taste of Badamgir Badam Drink, made with 
+        high-quality almonds and natural ingredients. This delicious drink is 
+        perfect for those looking for a healthy and refreshing beverage.
+      </p>
+      <p><strong>Key Features</strong></p>
+      <ul>
+        <li>Made with high-quality almonds and natural ingredients</li>
+        <li>Rich in nutrients and protein</li>
+        <li>Delicious and creamy taste</li>
+        <li>Perfect for a healthy and refreshing drink</li>
+      </ul>
+      <p><strong>Product Details</strong></p>
+      <ul>
+        <li>Product Name: Badamgir Badam Drink</li>
+        <li>Quantity: 190ml</li>
+        <li>Ingredients: Almonds, Milk, Sugar, Saffron, Cardamom</li>
+        <li>Shelf Life: 6 months from manufacturing date</li>
+      </ul>
+      <p><strong>Quality No :</strong> 1</p>
+    </div>
+  </div>
+
+   <div class="tracking-container">
+  <h2>Delivery by Tue 28 June</h2>
+  <div class="tracking-steps">
+    <!-- Ordered -->
+    <div class="step completed">
+      <div class="circle big"></div>
+      <div class="step-label">Ordered</div>
+      <div class="step-date">15 June</div>
+    </div>
+
+    <!-- Line -->
+    <div class="line active"></div>
+
+    <!-- Shipped -->
+    <div class="step current">
+      <div class="circle small"></div>
+      <div class="step-label">Shipped</div>
+      <div class="step-date">18 June</div>
+    </div>
+
+    <!-- Line -->
+    <div class="line"></div>
+
+    <!-- Out for Delivery -->
+    <div class="step upcoming">
+      <div class="circle"></div>
+      <div class="step-label">Out of Delivery</div>
+      <div class="step-date">27 June</div>
+    </div>
+
+    <!-- Line -->
+    <div class="line"></div>
+
+    <!-- Delivered -->
+    <div class="step upcoming">
+      <div class="circle"></div>
+      <div class="step-label">Delivery</div>
+      <div class="step-date">28 June</div>
+    </div>
+  </div>
+</div>
+
+    <div class="explore">
+      <div>
+        <h2>Explore More</h2>
+        <div class="explore-products">
+          <img src="Groceries Images/Drinks & Juices J.png" alt="Juice">
+          <img src="Groceries Images/Nandini Goodlife Milk 1L.png" alt="Good Life Milk">
+          <img src="Groceries Images/Nestle Milkmaid Condensed Milk 380 g (Tin).png" alt="Milkmaid">
+          <img src="Groceries Images/Nandini Fresh Curd 500GM.png" alt="Curd">
+        </div>
+      </div>
+      <div class="see-more">
+        <a href="Categories.html" style="text-decoration: none; color:#000">See More</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+  localStorage.setItem("cart", JSON.stringify(sampleCart));
+
+    function showCart() {
+      document.getElementById("cartOverlay").style.display = "flex";
+      renderCart();
+    }
+
+    function hideCart() {
+      document.getElementById("cartOverlay").style.display = "none";
+    }
+
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let itemsHTML = "";
+      let totalQty = 0;
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalQty += item.quantity;
+        subtotal += itemTotal;
+
+        itemsHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="cart-item-info">
+              <h4>${item.name} ${item.weight}</h4>
+              <p>₹${item.price} × ${item.quantity} = ₹${itemTotal.toFixed(2)}</p>
+              <p>Save For later ❤️</p>
+            </div>
+            <div class="cart-item-actions">
+              <button onclick="removeFromCart('${item.id}')">Remove ❌</button>
+            </div>
+          </div>
+        `;
+      });
+
+      const handlingFee = cart.length > 0 ? 10 : 0; // Fixed fee if cart is not empty
+      const toPay = subtotal + handlingFee;
+
+      document.getElementById("cart-items").innerHTML = itemsHTML;
+      document.getElementById("item-count").innerText = `${cart.length} Item${cart.length !== 1 ? 's' : ''}`;
+      document.getElementById("total-qty").innerText = totalQty;
+      document.getElementById("total-price").innerText = subtotal.toFixed(2);
+      document.getElementById("total-handling").innerText = handlingFee.toFixed(2);
+      document.getElementById("total-pay").innerText = toPay.toFixed(2);
+    }
+
+    function removeFromCart(id) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart = cart.filter(item => item.id !== id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function buyNow() {
+      alert("Proceeding to checkout...");
+      window.location.href= 'Checkout.html';
+    }
+  </script>
+
+</body>
+</html>

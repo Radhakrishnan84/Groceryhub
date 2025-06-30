@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nandini Goodlife Milk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px;
+    }
+
+    .left-section {
+      flex: 1;
+      padding-right: 30px;
+      min-width: 300px;
+    }
+
+    .right-section {
+      flex: 1;
+      min-width: 300px;
+      text-align: left;
+    }
+
+    .product-image {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+      padding-left: 200px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #333;
+    }
+
+    p, ul {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .price {
+      font-size: 24px;
+      color: #222;
+      margin: 10px 0;
+    }
+
+    .gm {
+      color: gray;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .in-stock {
+      color: #b00;
+    }
+
+    .actions button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .add-cart {
+      background-color: #d5edc3;
+      color: #000;
+    }
+
+    .buy-now {
+      background-color: #8cc63f;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-section" id="product-description"></div>
+    <div class="right-section" id="product-summary"></div>
+  </div>
+
+  <script>
+    const product = {
+      id: "nandini-goodlife-milk-500gm",
+      name: "Nandini Goodlife Milk",
+      weight: "500GM",
+      price: 29,
+      image: "Groceries Images/Nandini Goodlife Milk 500GM.png",
+      quantity: 1
+    };
+
+    document.getElementById("product-description").innerHTML = `
+      <h1>Fresh Milk</h1>
+
+      <h2>Product Description</h2>
+      <p>
+        Get the goodness of fresh milk delivered right to your doorstep! Our milk is sourced from local dairy farms and is rich in nutrients like calcium, protein, and vitamins. Perfect for cereal, cooking, or just a refreshing glass.
+      </p>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li>- Fresh and pure: Our milk is sourced from local dairy farms and is free from any additives or preservatives.</li>
+        <li>- Rich in nutrients: Our milk is a good source of calcium, protein, and vitamins.</li>
+        <li>- Perfect for various uses: Use our milk for cereal, cooking, baking, or just enjoy a refreshing glass.</li>
+      </ul>
+
+      <h2>Product Details</h2>
+      <ul>
+        <li>- Type: Whole milk, Low-fat milk, Skim milk</li>
+        <li>- Packaging: 1 liter, 500ml, 250ml</li>
+        <li>- Shelf Life: 2-3 days from delivery date</li>
+        <li>- Storage Instructions: Store in refrigerator at 0-4°C</li>
+      </ul>
+    `;
+
+    document.getElementById("product-summary").innerHTML = `
+      <img src="${product.image}" alt="${product.name}" class="product-image" />
+      <h2>${product.name} <span class="gm">${product.weight}</span></h2>
+      <p class="price">₹${product.price}</p>
+
+      <div class="info">
+        <span>Quality No : 1</span>
+        <span class="in-stock">❤️ In Stoke : 13</span>
+      </div>
+
+      <div class="actions">
+        <button class="add-cart" onclick="addToCart()">Add to cart</button>
+        <button class="buy-now" onclick="buyNow()">Buy Now</button>
+      </div>
+    `;
+
+    function addToCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(item => item.id === product.id);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ ...product });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Product added to cart!");
+    }
+
+    function buyNow() {
+      addToCart();
+      window.location.href = "Home.html"; // Customize redirection as needed
+    }
+  </script>
+</body>
+</html>

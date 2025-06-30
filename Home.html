@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GroceryHub</title>
+  <link rel="stylesheet" href="Home.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Info Bar -->
+<section class="top-bar">
+  <div class="left">
+    <span><img src="Groceries Images/Vector V.png" alt="Phone"> +91 87642 987687</span>
+    <span><img src="Groceries Images/Vector 1.png" alt="WA"> +91 87642 987687</span>
+  </div>
+  <div class="center">World Fastest online Shopping Destination</div>
+  <div class="right">
+    <span onclick="openModal()">Current Location 
+      <img src="Groceries Images/Vector.png" alt="Arrow">
+    </span>
+  <span onclick="openAccountPopup()">Account 
+  <img src="Groceries Images/Vector.png" alt="Arrow">
+</span>
+  <div class="login-wrapper" onclick="openLogin()">
+  <img src="Groceries Images/SVG.png" alt="Avatar">
+  <span>Login/LogOut</span>
+</div>
+</section>
+
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="logo-container">
+      <img src="Groceries Images/Ellipse 1.png" alt="GroceryHub" class="logo" />
+      <h2>GroceryHub</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="Home.html" class="active">Home</a>
+      <a href="Categories.html">Categories</a>
+      <a href="Deals.html">Deals</a>
+    </nav>
+    <div class="icons">
+      <div><span><img src="Groceries Images/SEARCH.png" alt="Search"></span><br><small>Search</small></div>
+      <div onclick="showCart()"><span><img src="Groceries Images/Vector 8.png" alt="Cart"></span><br><small>Cart</small></div>
+      <div onclick="showCart()"><span><img src="Groceries Images/Vector O.png" alt="Like"></span><br><small>Liked</small></div>
+    </div>
+  </header>
+
+  <!-- Cart Overlay -->
+  <div class="overlay" id="cartOverlay">
+    <div class="cart-header">
+      <h1>My Cart</h1>
+      <h2 id="item-count">0 Items</h2>
+    </div>
+    <div class="cart-panel">
+      <div class="close-btn" onclick="hideCart()">✕</div>
+      <div class="cart-content">
+        <div class="cart-items" id="cart-items">
+          <!-- Product cards appear here -->
+        </div>
+        <div class="bill">
+          <h3>Bill Details</h3>
+          <div class="bill-details">
+            <p>Total qty ( <span id="total-qty">0</span> )</p>
+            <p>Subtotal: ₹<span id="total-price">0.00</span></p>
+            <p>Handling fee: ₹<span id="total-handling">0.00</span></p>
+            <p>To Pay: ₹<span id="total-pay">0.00</span>/-</p>
+          </div>
+          <button class="buy-now" onclick="buyNow()">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Current Address Section -->
+
+  <div id="locationModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">X</span>
+    <h2>Choose your Location</h2>
+    <p>Select a delivery location to see<br>product availability and delivery options</p>
+    <button class="change-address-btn">Change Your Adress</button>
+    <div class="divider">
+      <span>Or enter an Indian pincode</span>
+    </div>
+    <div class="pincode-row">
+      <input type="text" placeholder="XXXXX" />
+      <button class="apply-btn">Apply</button>
+    </div>
+  </div>
+</div>
+
+<!-- Account Overlay -->
+<div id="accountModal" class="account-modal">
+  <div class="account-content">
+    <span class="close-btn" onclick="closeAccountPopup()">X</span>
+
+    <button class="signout-btn">Sing Out</button>
+
+    <p><strong>New Customer ?</strong> <span class="highlight">Start Here</span></p>
+
+    <p><strong>Your Account</strong></p>
+    <ul>
+      <li>Your Account</li>
+      <li>Your Orders</li>
+      <li>Your Wish List</li>
+      <li>Your Subscribe & Save Items</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="login-modal">
+  <div class="login-box">
+    <span class="login-close" onclick="closeLogin()">X</span>
+
+    <img src="Groceries Images/Screenshot_2025-03-29_160452-removebg-preview 1.png" alt="Grocery Bag" class="login-img" />
+
+    <h2>Login</h2>
+    <p>Enter Your Phone Number to proceed</p>
+
+    <div class="input-box">
+      <img src="Groceries Images/Vector V.png" alt="Phone Icon" />
+      <input type="tel" placeholder="Enter 10 digit phone number" maxlength="10" />
+    </div>
+
+    <button class="continue-btn" onclick="goToCheckout()">Continue</button>
+<div>
+  <p class="terms">By clicking, I accept <strong>Terms & Condition</strong>.</p>
+</div>
+    
+  </div>
+</div>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Fresh Groceries Delivered<br>To Your DoorStep</h1>
+        <p>Emphasizing the Store's Commitment to providing<br>fresh Produce and Product Daily.</p>
+        <button class="shop-now"><a href="Deals.html">Shop Now</a></button>
+      </div>
+      <div class="hero-img">
+        <img src="Groceries Images/image 1.png" alt="Delivery Man" />
+      </div>
+    </section>
+  </main>
+
+ <!-- Banner -->
+  <div class="promo-banner">
+    <img src="Groceries Images/Link → welcome-image.png" alt="One Stop Shop Banner">
+  </div>
+
+  <!-- Category and Listings -->
+<section class="category-section">
+  <!-- Grocery & Kitchen -->
+  <section class="category-block">
+    <div class="category-header">
+      <h2>Grocery & Kitchen</h2>
+      <a href="Categories.html">See all <img src="Groceries Images/Vector R.png" alt="arrow"></a>
+    </div>
+    <div class="category-items">
+      <article><img src="Groceries Images/Atta,Rice,Dal.png" alt="Atta"><p>Atta, Rice & Dal</p></article>
+      <article><img src="Groceries Images/Group 182.png" alt="Oil"><p>Cooking Oil</p></article>
+      <article><img src="Groceries Images/Masala, Spices H.png" alt="Masala"><p>Masala & Spices</p></article>
+      <article><img src="Groceries Images/Chicken, Fish & Meat U.png" alt="Meat"><p>Chicken, Fish & Meat</p></article>
+      <article><img src="Groceries Images/Fruits &Vegetables U.png" alt="Fruits"><p>Fruits & Vegetables</p></article>
+      <article><img src="Groceries Images/Dairy, Bread & Eggs U.png" alt="Dairy"><p>Dairy, Bread & Eggs</p></article>
+      <article><img src="Groceries Images/Dry Fruits I.png" alt="Dry Fruits"><p>Dry Fruits</p></article>
+      <article><img src="Groceries Images/Frame 3 O.png" alt="Organic"><p>Organic Food</p></article>
+    </div>
+  </section>
+
+  <!-- Snacks & Drinks -->
+  <section class="category-block">
+    <div class="category-header">
+      <h2>Snacks & Drinks</h2>
+      <a href="Categories.html">See all <img src="Groceries Images/Vector R.png" alt="arrow"></a>
+    </div>
+    <div class="category-items">
+      <article><img src="Groceries Images/Biscuits & Cookies H.png" alt="Biscuits"><p>Biscuits & Cookies</p></article>
+      <article><img src="Groceries Images/Breakfast Cereals J.png" alt="Cereals"><p>Breakfast Cereals</p></article>
+      <article><img src="Groceries Images/Pasta & Noodles J.png" alt="Noodles"><p>Pasta & Noodles</p></article>
+      <article><img src="Groceries Images/Jams &Spreads J.png" alt="Jams"><p>Jams & Spreads</p></article>
+      <article><img src="Groceries Images/Sweets &Chocolates J.png" alt="Chocolates"><p>Sweets & Chocolates</p></article>
+      <article><img src="Groceries Images/Chips & Namkeens.png" alt="Chips"><p>Chips & Namkeens</p></article>
+      <article><img src="Groceries Images/Drinks & Juices J.png" alt="Juices"><p>Drinks & Juices</p></article>
+      <article><img src="Groceries Images/Frame 4 J.png" alt="Tea"><p>Tea, Coffee & Beverages</p></article>
+    </div>
+  </section>
+</section>
+<section class="category-block">
+  <h2 class="product-heading">Fish and Meat</h2>
+  <div class="product-grid">
+    <article class="product-card">
+      <img src="Groceries Images/Premium Chicken Whole Skinless 1.png" alt="Premium Chicken Whole Skinless" />
+      <h3><a href="Product 1.html">Premium Chicken Whole Skinless</a></h3>
+      <p>250 GM</p>
+      <div class="price-row">
+        <span>₹74.75</span>
+        <button class="options-btn">4 Options</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="Groceries Images/Chicken Boneless Breast Fillet.png" alt="Chicken Boneless Breast Fillet" />
+      <h3><a href="Product 2.html">Chicken Boneless Breast Fillet</a></h3>
+      <p>250 GM</p>
+      <div class="price-row">
+        <span>₹107.25</span>
+        <button class="options-btn">4 Options</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="Groceries Images/Goat Currycut.png" alt="Goat Currycut" />
+      <h3><a href="Product 3.html">Goat Currycut</a></h3>
+      <p>250 GM</p>
+      <div class="price-row">
+        <span>₹212.25</span>
+        <button class="options-btn">4 Options</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="Groceries Images/Chicken Liver Cut Pieces U.png" alt="Chicken Liver Cut Pieces" />
+      <h3>Chicken Liver Cut Pieces</h3>
+      <p>250 GM</p>
+      <div class="price-row">
+        <span>₹249.75</span>
+        <button class="options-btn">4 Options</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="Groceries Images/fresho-chicken-curry-cut-with-skin.webp" alt="Chicken Dressed With Skin Whole" />
+      <h3>Chicken Dressed With Skin Whole</h3>
+      <p>250 GM</p>
+      <div class="price-row">
+        <span>₹59.75</span>
+        <button class="options-btn">4 Options</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="Groceries Images/Premium Chicken Drumstick Skinless U.png" alt="Premium Chicken Drumstick Skinless" />
+      <h3>Premium Chicken Drumstick Skinless</h3>
+      <p>250 GM</p>
+      <div class="price-row">
+        <span>₹107.25</span>
+        <button class="options-btn">4 Options</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="category-block">
+  <h2 class="product-heading">Dairy, Bread & Eggs</h2>
+  <div class="product-grid">
+    <article class="product-card">
+      <img src="Groceries Images/Jersey Badam Flavoured Milk 190ML.png" alt="Jersey Badam Flavoured Milk" />
+      <h3><a href="Product 4.html">Jersey Badam Flavoured Milk 190ML</a></h3>
+      <p>190 ML</p>
+      <div class="price-row">
+        <span>₹40</span>
+        <button class="qty-btn">+</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <div class="discount-label">3% Off</div>
+      <img src="Groceries Images/Nandini Goodlife Milk 500GM.png" alt="Nandini Goodlife Milk 500GM" />
+      <h3><a href="Product 5.html">Nandini Goodlife Milk 500GM</a></h3>
+      <p>500 GM</p>
+      <div class="price-row">
+        <span><del>₹30</del> ₹29</span>
+        <button class="qty-btn">+</button>
+      </div>
+    </article>
+       <article class="product-card">
+      <img src="Groceries Images/Milky Mist Paneer-P.png" alt="Milky Mist Paneer" />
+      <h3><a href="Product 6.html">Milky Mist Paneer</a></h3>
+      <p>200 GM</p>
+      <div class="price-row">
+        <span>₹128</span>
+        <button class="options-btn">2 Options</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="Groceries Images/Nandini Goodlife Milk 180ML.png" alt="Nandini Goodlife Milk 180ML" />
+      <h3>Nandini Goodlife Milk 180ML</h3>
+      <p>180 ML</p>
+      <div class="price-row">
+        <span>₹14</span>
+        <button class="qty-btn">+</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="Groceries Images/Nandini Slim Uht Milk 1L.png" alt="Nandini Slim Uht Milk 1L" />
+      <h3>Nandini Slim Uht Milk 1L</h3>
+      <p>1 LTR</p>
+      <div class="price-row">
+        <span>₹71</span>
+        <button class="qty-btn">+</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="Groceries Images/Heritage Premium Badam Milk With Badam Bits 180ML.png" alt="Heritage Premium Badam Milk" />
+      <h3>Heritage Premium Badam Milk With Bada...</h3>
+      <p>180 ML</p>
+      <div class="price-row">
+        <span>₹35</span>
+        <button class="qty-btn">+</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="category-block">
+  <div class="container">
+    <h2 class="product-heading">Buy More, Save More</h2>
+    <div class="product-grid">
+      
+      <!-- Product Cards (sample 6 cards) -->
+      <div class="product-card">
+        <img src="Groceries Images/SPAR Select Urad Dal 500G.png" alt="SPAR Select Urad Dal">
+        <h3><a href="Product 7.html">SPAR Select Urad Dal 500G</a></h3>
+        <p>500 GM</p>
+        <div class="price-row">
+          <span>₹110</span>
+          <button class="qty-btn">+</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="Groceries Images/Bhagyalakshmi Fried Gram-P.png" alt="Bhagyalakshmi Fried Gram">
+        <h3><a href="Product 8.html">Bhagyalakshmi Fried Gram</a></h3>
+        <p>250 GM</p>
+        <div class="price-row">
+          <span>₹40</span>
+          <button class="options-btn">2 Options</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="Groceries Images/Screenshot_2025-03-31_150052-removebg-preview 1.png" alt="Popular Moong Dal 1KG">
+        <h3><a href="Product 9.html">Popular Moong Dal 1KG</a></h3>
+        <p>1 KG</p>
+        <div class="price-row">
+          <span><del style="color:#999;font-size:11px;">₹190</del><br>₹159</span>
+          <button class="qty-btn">+</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="Groceries Images/Screenshot_2025-03-31_150157-removebg-preview 1.png" alt="SPAR Select Spotted Double Beans">
+        <h3>SPAR Select Spotted Double Beans</h3>
+        <p>200 GM</p>
+        <div class="price-row">
+          <span>₹150</span>
+          <button class="options-btn">2 Options</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="Groceries Images/Loose Bestprice Fried Gram.png" alt="Loose Bestprice Fried Gram">
+        <h3>Loose Bestprice Fried Gram</h3>
+        <p>250 GM</p>
+        <div class="price-row">
+          <span>₹42.25</span>
+          <button class="options-btn">3 Options</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="discount-label">14% Off</span>
+        <img src="Groceries Images/Popular Moong Dal 2KG.png" alt="Popular Moong Dal 2KG">
+        <h3>Popular Moong Dal 2KG</h3>
+        <p>2 KG</p>
+        <div class="price-row">
+          <span><del style="color:#999;font-size:11px;">₹299</del><br>₹258</span>
+          <button class="qty-btn">+</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Promo Banner -->
+<section class="promo-banner">
+  <img src="Groceries Images/Screenshot 2025-06-24 115537.png" alt="Seasonal Fruits Offer Banner">
+</section>
+
+<section class="category-block">
+  <div class="container">
+    <h2 class="product-heading">Explore Categories</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="Groceries Images/Apple Royalgala.png" alt="Apple Royalgala">
+        <h3><a href="Product 10.html">Apple Royalgala</a></h3>
+        <p>500 GM</p>
+        <div class="price-row">
+          <span>₹124.5</span>
+          <button class="qty-btn">+</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="Groceries Images/Apple Shimla.png" alt="Apple Shimla">
+        <h3><a href="Product 11.html">Apple Shimla</a></h3>
+        <p>500 GM</p>
+        <div class="price-row">
+          <span>₹114.5</span>
+          <button class="qty-btn">+</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="Groceries Images/Banana Robusta.png" alt="Banana Robusta">
+        <h3><a href="Product 12.html">Banana Robusta</a></h3>
+        <p>500 GM</p>
+        <div class="price-row">
+          <span>₹27.5</span>
+          <button class="qty-btn">+</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="Groceries Images/Banana Yelakki.png" alt="Banana Yelakki">
+        <h3>Banana Yelakki</h3>
+        <p>500 GM</p>
+        <div class="price-row">
+          <span>₹62.5</span>
+          <button class="qty-btn">+</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="Groceries Images/orange nagpur.png" alt="Orange Nagpur">
+        <h3>Orange Nagpur</h3>
+        <p>500 GM</p>
+        <div class="price-row">
+          <span>₹59.5</span>
+          <button class="qty-btn">+</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="Groceries Images/guava prepack.png" alt="Guava Prepack">
+        <h3>Guava Prepack</h3>
+        <p>300 GM</p>
+        <div class="price-row">
+          <span>₹38.7</span>
+          <button class="qty-btn">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonial-section">
+  <h2 class="testimonial-heading">What Our Beloved Customer Say About Us</h2>
+
+  <div class="testimonial-container">
+    <!-- Testimonial 1 -->
+    <article class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p>
+        "I've been shopping at this store for years and I'm always impressed with the quality of their produce and meats. The staff is friendly and helpful too!"
+      </p>
+      <div class="customer">
+        <img src="Groceries Images/G.png" alt="Astha Kohli">
+        <span>Astha Kohli</span>
+      </div>
+    </article>
+
+    <!-- Testimonial 2 -->
+    <article class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p>
+        "I love the variety of products they carry, especially the organic and gluten-free options. The prices are reasonable too!"
+      </p>
+      <div class="customer">
+        <img src="Groceries Images/Ellipse 2 H.png" alt="Neeraj Singh">
+        <span>Neeraj Singh</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+    <!-- Footer -->
+
+<footer>
+  <section class="footer-container">
+    <!-- Left Side -->
+    <div class="footer-about">
+ <div style="display: flex; align-items: center; gap: 15px;">
+  <img src="Groceries Images/Ellipse 1.png" alt="Basket Image" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+  <h2 style="margin: 0; font-size: 22px;">GroceryHub</h2>
+</div>
+      <p><strong>GroceryHub</strong> brings its customers low prices every day. We offer a wide choice covering fresh & packaged food, grains, pulses, dairy, frozen, plastics, utensils, crockery, travel, stationery, & more. SPAR has 13,900 stores in 48 countries. In India, SPAR has 23 stores across 8 cities.</p>
+      <div class="contact-info">
+        <p><img src="Groceries Images/Mail.png" alt=""> business@groceryhub.com</p>
+        <p><img src="Groceries Images/Internet.png" alt=""> www.Grocery.in</p>
+      </div>
+    </div>
+
+    <!-- Middle Columns -->
+    <nav class="footer-links">
+      <div>
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="#">Your Account</a></li>
+          <li><a href="#">FAQS</a></li>
+          <li><a href="#">Store List</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Let Us Help You</h3>
+        <ul>
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Share Feedback</a></li>
+          <li><a href="#">Call Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Return & Refund Policy</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Bottom Right -->
+    <div class="footer-social">
+      <h3>Connect With Us</h3>
+      <div class="social-icons">
+        <a href="#"><img src="Groceries Images/Item.png"></a>
+        <a href="#"><img src="Groceries Images/Item H.png"></a>
+        <a href="#"><img src="Groceries Images/Item p.png"></a>
+        <a href="#"><img src="Groceries Images/Item 9.png"></a>
+      </div>
+      <div class="store-buttons">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play">
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Copyright -->
+  <div class="footer-bottom">
+    <p>GroceryHub India © All rights Reserved</p>
+  </div>
+</footer>
+
+
+  <!-- Current Address Function -->
+
+<script>
+
+  function openModal() {
+    document.getElementById('locationModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('locationModal').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('locationModal');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  }
+</script>
+
+<!-- Account Function -->
+
+<script>
+  function openAccountPopup() {
+    document.getElementById('accountModal').style.display = 'block';
+  }
+
+  function closeAccountPopup() {
+    document.getElementById('accountModal').style.display = 'none';
+  }
+
+  // Optional: Close when clicking outside
+  window.onclick = function(event) {
+    const modal = document.getElementById('accountModal');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  }
+</script>
+
+<!-- Login / Logout Function  -->
+
+<script>
+  function openLogin() {
+    document.getElementById('loginModal').style.display = 'flex';
+  }
+
+  function closeLogin() {
+    document.getElementById('loginModal').style.display = 'none';
+  }
+
+  function goToCheckout() {
+  window.location.href = "Checkout.html"; 
+}
+
+  window.onclick = function(e) {
+    const modal = document.getElementById('loginModal');
+    if (e.target === modal) modal.style.display = 'none';
+  }
+</script>
+
+
+  <!-- Add to cart Function -->
+
+<script>
+
+
+  localStorage.setItem("cart", JSON.stringify(sampleCart));
+
+    function showCart() {
+      document.getElementById("cartOverlay").style.display = "flex";
+      renderCart();
+    }
+
+    function hideCart() {
+      document.getElementById("cartOverlay").style.display = "none";
+    }
+
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let itemsHTML = "";
+      let totalQty = 0;
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalQty += item.quantity;
+        subtotal += itemTotal;
+
+        itemsHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="cart-item-info">
+              <h4>${item.name} ${item.weight}</h4>
+              <p>₹${item.price} * ${item.quantity} = ₹${itemTotal.toFixed(2)}</p>
+              <p>Save For later ❤️</p>
+            </div>
+            <div class="cart-item-actions">
+              <button onclick="removeFromCart('${item.id}')">Remove ❌</button>
+            </div>
+          </div>
+        `;
+      });
+
+      const handlingFee = cart.length > 0 ? 10 : 0; // Fixed fee if cart is not empty
+      const toPay = subtotal + handlingFee;
+
+      document.getElementById("cart-items").innerHTML = itemsHTML;
+      document.getElementById("item-count").innerText = `${cart.length} Item${cart.length !== 1 ? 's' : ''}`;
+      document.getElementById("total-qty").innerText = totalQty;
+      document.getElementById("total-price").innerText = subtotal.toFixed(2);
+      document.getElementById("total-handling").innerText = handlingFee.toFixed(2);
+      document.getElementById("total-pay").innerText = toPay.toFixed(2);
+    }
+
+    function removeFromCart(id) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart = cart.filter(item => item.id !== id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function buyNow() {
+      alert("Proceeding to checkout...");
+      window.location.href= 'Checkout.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout Payment</title>
+  <link rel="stylesheet" href="Checkout.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Info Bar -->
+  <section class="top-bar">
+    <div class="left">
+      <span><img src="Groceries Images/Vector V.png" alt="Phone"> +91 87642 987687</span>
+      <span><img src="Groceries Images/Vector 1.png" alt="WA"> +91 87642 987687</span>
+    </div>
+    <div class="center">World Fastest online Shopping Destination</div>
+    <div class="right">
+      <span> Current Location <img src="Groceries Images/Vector.png" alt="Arrow" id="Arrow"></span>
+      <span> Account <img src="Groceries Images/Vector.png" alt="Arrow" id="Arrow"></span>
+      <div class="login-wrapper">
+        <img src="Groceries Images/SVG.png" alt="Avatar">
+        <span>Login/LogOut</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="logo-container">
+      <img src="Groceries Images/Ellipse 1.png" alt="GroceryHub" class="logo" />
+      <h2>GroceryHub</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="Home.html" class="active">Home</a>
+      <a href="Categories.html">Categories</a>
+      <a href="Deals.html">Deals</a>
+    </nav>
+    <div class="icons">
+      <div><span><img src="Groceries Images/SEARCH.png" alt="Search"></span><br><small>Search</small></div>
+      <div onclick="showCart()"><span><img src="Groceries Images/Vector 8.png" alt="Cart"></span><br><small>Cart</small></div>
+      <div onclick="showCart()"><span><img src="Groceries Images/Vector O.png" alt="Like"></span><br><small>Liked</small></div>
+    </div>
+  </header>
+    
+  <!-- Product Section -->
+  <section class="product-section">
+    <h1>Secured CheckUp</h1>
+    <div class="product-content">
+      <div class="product-image">
+        <img src="Groceries Images/Jersey Badam Flavoured Milk 190ML.png" alt="Badam Milk 190ML">
+        <h3>Jersey Badam Flavoured Milk 190ML</h3>
+      </div>
+      <div class="product-info">
+        <h2>Product Description :</h2>
+        <p>Indulge in the rich and creamy taste of Badamgir Badam Drink, made with high-quality almonds and natural ingredients. This delicious drink is perfect for those looking for a healthy and refreshing beverage.</p>
+
+        <h2>Key Features</h2>
+        <ul>
+          <li>Made with high-quality almonds and natural ingredients</li>
+          <li>Rich in nutrients and protein</li>
+          <li>Delicious and creamy taste</li>
+          <li>Perfect for a healthy and refreshing drink</li>
+        </ul>
+
+        <h2>Product Details</h2>
+        <p>Product Name: Badamgir Badam Drink</p>
+        <p>Quantity: 190ML</p>
+        <p>Ingredients: Almonds, Milk, Sugar, Saffron, Cardamom</p>
+        <p>Shelf Life: 6 months from manufacturing date</p>
+
+        <p class="product-meta">Quality No : 1 ❤️ In Stock : 13</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checkout Section -->
+  <h1 style="text-align:center;">PAYMENT OPTIONS</h1>
+
+  <div class="checkout-container">
+    <!-- Cost Box -->
+    <div class="cost-box">
+      <h2>Total Cost</h2>
+      <p>Session free for 30 minutes</p>
+      <div class="total-amount" id="totalAmount">$289/-</div>
+
+      <h2>To Pay</h2>
+      <div class="total-amount" id="toPay">$289/-</div>
+
+      <button class="promo-btn" onclick="applyPromo()">🎟️ Use Promo code</button>
+    </div>
+
+    <!-- Payment Box -->
+    <div class="payment-box">
+      <h2>Select Payment Method</h2>
+      <label class="payment-option">
+        <input type="radio" name="payment" value="paypal">
+        Paypal <img src="Groceries Images/Screenshot_2024-11-27_110140-removebg-preview 2.png" alt="PayPal">
+      </label>
+      <label class="payment-option">
+        <input type="radio" name="payment" value="creditcard">
+        Credit Card 
+        <img src="Groceries Images/Screenshot_2024-11-27_110227-removebg-preview 2.png" alt="Card" width="40">
+        <img src="Groceries Images/Screenshot_2024-11-27_110354-removebg-preview 2.png" alt="card" width="40">
+        <img src="Groceries Images/Screenshot_2024-11-27_110406-removebg-preview 2.png" alt="card" width="40">
+        <img src="Groceries Images/Screenshot_2024-11-27_110552-removebg-preview 2.png" alt="card" width="40">
+      </label>
+    </div>
+  </div>
+
+
+  <!-- Pay Button -->
+  <button class="pay-confirm" onclick="payConfirm()" style="margin: 30px auto; display: block;">Pay & Confirm</button>
+
+  <!-- Success Message -->
+  <div id="successMessage" style="display:none; text-align:center; margin-top:50px;">
+    <img src="Groceries Images/Group 51.png" alt="Success" style="width:120px;">
+    <h2>“We've Got Your Order!”</h2>
+    <button onclick="trackOrder()" style="
+      background: #8cc63f;
+      color: #fff;
+      border: none;
+      padding: 15px 40px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+    ">Track Your Order Now</button>
+  </div>
+
+  <!-- Script Section -->
+  <script>
+    let totalAmount = 289;
+
+    function applyPromo() {
+      const discount = totalAmount * 0.1;
+      totalAmount -= discount;
+      document.getElementById("toPay").innerText = `$${totalAmount.toFixed(2)}/-`;
+      alert(`Promo applied! You saved $${discount.toFixed(2)}`);
+    }
+
+    function trackOrder() {
+      alert("🔎 Redirecting to Order Tracking Page...");
+      window.location.href = 'Tracking.html';
+    }
+
+   function payConfirm() {
+  const paymentMethods = document.getElementsByName("payment");
+  let selected = null;
+
+  for (const method of paymentMethods) {
+    if (method.checked) {
+      selected = method.value;
+    }
+  }
+
+  if (selected) {
+    if (selected === "paypal") {
+      window.location.href = "success.html";
+    } else if (selected === "creditcard") {
+      window.location.href = "card-payment.html";
+    }
+  } else {
+    alert("Please select a payment method.");
+  }
+}
+  </script>
+</body>
+</html>

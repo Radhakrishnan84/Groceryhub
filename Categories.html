@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GroceryHub</title>
+  <link rel="stylesheet" href="Categories.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Info Bar -->
+  <section class="top-bar">
+    <div class="left">
+      <span><img src="Groceries Images/Vector V.png" alt="Phone"> +91 87642 987687</span>
+      <span><img src="Groceries Images/Vector 1.png" alt="WA"> +91 87642 987687</span>
+    </div>
+    <div class="center">World Fastest online Shopping Destination</div>
+    <div class="right">
+      <span> Current Location <img src="Groceries Images/Vector.png" alt="Arrow" id="Arrow"></span>
+      <span> Account <img src="Groceries Images/Vector.png" alt="Arrow" id="Arrow"></span>
+      <div class="login-wrapper">
+  <img src="Groceries Images/SVG.png" alt="Avatar">
+  <span>Login/LogOut</span>
+</div>
+    </div>
+  </section>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="logo-container">
+      <img src="Groceries Images/Ellipse 1.png" alt="GroceryHub" class="logo" />
+      <h2>GroceryHub</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="Home.html">Home</a>
+      <a href="Categories.html" class="active">Categories</a>
+      <a href="Deals.html">Deals</a>
+    </nav>
+    <div class="icons">
+      <div><span><img src="Groceries Images/SEARCH.png" alt="Search"></span><br><small>Search</small></div>
+      <div onclick="showCart()"><span><img src="Groceries Images/Vector 8.png" alt="Cart"></span><br><small>Cart</small></div>
+      <div onclick="showCart()"><span><img src="Groceries Images/Vector O.png" alt="Like"></span><br><small>Liked</small></div>
+    </div>
+  </header>
+
+    <!-- Cart Overlay -->
+  <!-- Cart Overlay -->
+  <div class="overlay" id="cartOverlay">
+    <div class="cart-header">
+      <h1>My Cart</h1>
+      <h2 id="item-count">0 Items</h2>
+    </div>
+    <div class="cart-panel">
+      <div class="close-btn" onclick="hideCart()">✕</div>
+      <div class="cart-content">
+        <div class="cart-items" id="cart-items">
+          <!-- Product cards appear here -->
+        </div>
+        <div class="bill">
+          <h3>Bill Details</h3>
+          <div class="bill-details">
+            <p>Total qty ( <span id="total-qty">0</span> )</p>
+            <p>Subtotal: ₹<span id="total-price">0.00</span></p>
+            <p>Handling fee: ₹<span id="total-handling">0.00</span></p>
+            <p>To Pay: ₹<span id="total-pay">0.00</span>/-</p>
+          </div>
+          <button class="buy-now" onclick="buyNow()">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Navigation Icons -->
+  <div class="category-nav">
+    <div><img src="Groceries Images/category-image.png" alt=""><p>Grocery</p></div>
+    <div><img src="Groceries Images/category-image J.png" alt=""><p>Fruits & Vegetables</p></div>
+    <div><img src="Groceries Images/category-image K.png" alt=""><p>Fish & Meat</p></div>
+    <div><img src="Groceries Images/J.png" alt=""><p>Packaged Food</p></div>
+    <div><img src="Groceries Images/category-image Q.png" alt=""><p>Dairy & Beverages</p></div>
+  </div>
+
+  <!-- Grocery Section -->
+  <section class="grocery-section">
+    <div class="section-header">
+      <img src="Groceries Images/category-image.png" alt="">
+      <h2>Grocery</h2>
+    </div>
+
+    <div class="product-grid">
+      <div class="product">
+        <img src="Groceries Images/Group 251 J.png"  alt="">
+        <p>Rice & Rice Products</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 252.png" alt="">
+        <p>Cooking Oil</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 253 N.png"alt="">
+        <p>Ghee & Vanaspati</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 254.png" alt="">
+        <p>Salt / Sugar / Jaggery</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 255 J.png" alt="">
+        <p>Flours</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 256.png" alt="">
+        <p>Masala & Spices</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- Fruits & Vegetables Section -->
+  <section class="grocery-section">
+    <div class="section-header-2">
+      <img src="Groceries Images/category-image J.png" alt="">
+      <h2>Fruits & Vegetables</h2>
+    </div>
+
+    <div class="product-grid-2">
+      <div class="product">
+        <img src="Groceries Images/Group 257.png"  alt="">
+        <p>Fresh Vegetables</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 258 J.png" alt="">
+        <p>Fresh Fruits</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fish & Meat Section -->
+
+  <!-- Grocery Section -->
+  <section class="grocery-section">
+    <div class="section-header-3">
+      <img src="Groceries Images/category-image K.png" alt="">
+      <h2>Fish & Meat</h2>
+    </div>
+
+    <div class="product-grid-3">
+      <div class="product">
+        <img src="Groceries Images/Group 259 J.png"  alt="">
+        <p>Chicken Whole & cuts</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 260.png" alt="">
+        <p>Meat</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 261.png"alt="">
+        <p>Fish & Sea Food</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 262.png" alt="">
+        <p>Delicatessen</p>
+      </div>
+  </section>
+
+    <!-- Packaged Food Section -->
+  <section class="grocery-section">
+    <div class="section-header-4">
+      <img src="Groceries Images/J.png" alt="">
+      <h2>Packaged Food</h2>
+    </div>
+
+    <div class="product-grid">
+      <div class="product">
+        <img src="Groceries Images/Group 263 J.png"  alt="">
+        <p>Biscuits & Cookies</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 264 I.png" alt="">
+        <p>Breakfast Cereals</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 265K.png"alt="">
+        <p>Chocolates & Candies</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 266.png" alt="">
+        <p>Ketchup & Sauces</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Pasta & Noodles J.png" alt="">
+        <p>Pasta & Noodles</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Jams &Spreads J.png" alt="">
+        <p>Jams & Spreads</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- Dairy & Beverages Section -->
+
+  <!-- Grocery Section -->
+  <section class="grocery-section">
+    <div class="section-header-5">
+      <img src="Groceries Images/category-image Q.png" alt="">
+      <h2>Dairy & Beverages</h2>
+    </div>
+
+    <div class="product-grid-5">
+      <div class="product">
+        <img src="Groceries Images/Group 268.png"  alt="">
+        <p>Dairy</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 269.png" alt="">
+        <p>Beverages</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 270.png"alt="">
+        <p>Poultry</p>
+      </div>
+      <div class="product">
+        <img src="Groceries Images/Group 271.png" alt="">
+        <p>Breads</p>
+      </div>
+  </section>
+
+
+  <!-- Footer -->
+
+<footer>
+  <section class="footer-container">
+    <!-- Left Side -->
+    <div class="footer-about">
+ <div style="display: flex; align-items: center; gap: 15px;">
+  <img src="Groceries Images/Ellipse 1.png" alt="Basket Image" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+  <h2 style="margin: 0; font-size: 22px;">GroceryHub</h2>
+</div>
+      <p><strong>GroceryHub</strong> brings its customers low prices every day. We offer a wide choice covering fresh & packaged food, grains, pulses, dairy, frozen, plastics, utensils, crockery, travel, stationery, & more. SPAR has 13,900 stores in 48 countries. In India, SPAR has 23 stores across 8 cities.</p>
+      <div class="contact-info">
+        <p><img src="Groceries Images/Mail.png" alt=""> business@groceryhub.com</p>
+        <p><img src="Groceries Images/Internet.png" alt=""> www.Grocery.in</p>
+      </div>
+    </div>
+
+    <!-- Middle Columns -->
+    <nav class="footer-links">
+      <div>
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="#">Your Account</a></li>
+          <li><a href="#">FAQS</a></li>
+          <li><a href="#">Store List</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Let Us Help You</h3>
+        <ul>
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Share Feedback</a></li>
+          <li><a href="#">Call Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Return & Refund Policy</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Bottom Right -->
+    <div class="footer-social">
+      <h3>Connect With Us</h3>
+      <div class="social-icons">
+        <a href="#"><img src="Groceries Images/Item.png"></a>
+        <a href="#"><img src="Groceries Images/Item H.png"></a>
+        <a href="#"><img src="Groceries Images/Item p.png"></a>
+        <a href="#"><img src="Groceries Images/Item 9.png"></a>
+      </div>
+      <div class="store-buttons">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play">
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Copyright -->
+  <div class="footer-bottom">
+    <p>GroceryHub India © All rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+
+  localStorage.setItem("cart", JSON.stringify(sampleCart));
+
+    function showCart() {
+      document.getElementById("cartOverlay").style.display = "flex";
+      renderCart();
+    }
+
+    function hideCart() {
+      document.getElementById("cartOverlay").style.display = "none";
+    }
+
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let itemsHTML = "";
+      let totalQty = 0;
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalQty += item.quantity;
+        subtotal += itemTotal;
+
+        itemsHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="cart-item-info">
+              <h4>${item.name} ${item.weight}</h4>
+              <p>₹${item.price} × ${item.quantity} = ₹${itemTotal.toFixed(2)}</p>
+              <p>Save For later ❤️</p>
+            </div>
+            <div class="cart-item-actions">
+              <button onclick="removeFromCart('${item.id}')">Remove ❌</button>
+            </div>
+          </div>
+        `;
+      });
+
+      const handlingFee = cart.length > 0 ? 10 : 0; // Fixed fee if cart is not empty
+      const toPay = subtotal + handlingFee;
+
+      document.getElementById("cart-items").innerHTML = itemsHTML;
+      document.getElementById("item-count").innerText = `${cart.length} Item${cart.length !== 1 ? 's' : ''}`;
+      document.getElementById("total-qty").innerText = totalQty;
+      document.getElementById("total-price").innerText = subtotal.toFixed(2);
+      document.getElementById("total-handling").innerText = handlingFee.toFixed(2);
+      document.getElementById("total-pay").innerText = toPay.toFixed(2);
+    }
+
+    function removeFromCart(id) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart = cart.filter(item => item.id !== id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function buyNow() {
+      alert("Proceeding to checkout...");
+      window.location.href= 'Checkout.html';
+    }
+  </script>
+</body>
+</html>

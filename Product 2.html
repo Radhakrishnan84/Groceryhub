@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chicken Boneless Breast Fillet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px;
+    }
+
+    .left-section {
+      flex: 1;
+      padding-right: 30px;
+      min-width: 300px;
+    }
+
+    .right-section {
+      flex: 1;
+      min-width: 300px;
+      text-align: left;
+    }
+
+    .right-section img.product-image {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      padding-left: 200px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #333;
+    }
+
+    p, ul {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .price {
+      font-size: 24px;
+      color: #222;
+      margin: 10px 0;
+    }
+
+    .gm {
+      color: gray;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .in-stock {
+      color: #b00;
+    }
+
+    .actions button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .add-cart {
+      background-color: #d5edc3;
+      color: #000;
+    }
+
+    .buy-now {
+      background-color: #8cc63f;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-section" id="product-description"></div>
+    <div class="right-section" id="product-summary"></div>
+  </div>
+
+  <script>
+    const product = {
+      id: "chicken-boneless-breast-fillet",
+      name: "Chicken Boneless Breast Fillet",
+      weight: "250 GM",
+      price: 107.25,
+      image: "Groceries Images/Chicken Boneless Breast Fillet.png",
+      quantity: 1
+    };
+
+    document.getElementById("product-description").innerHTML = `
+      <h1>Premium Chicken Whole Skinless</h1>
+
+      <h2>Product Description</h2>
+      <p>
+        Indulge in the tender and juicy taste of our Premium Chicken Whole Skinless. Our chicken is sourced from trusted farms and processed with utmost care to ensure a delicious and healthy eating experience. With no added hormones or antibiotics, our chicken is perfect for grilling, roasting, or cooking your favorite chicken recipes.
+      </p>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li>- Tender and juicy: Carefully selected and processed for maximum tenderness.</li>
+        <li>- No hormones or antibiotics: A healthier eating experience.</li>
+        <li>- Skinless: A leaner protein source.</li>
+        <li>- Perfect for grilling or roasting.</li>
+      </ul>
+
+      <h2>Product Details</h2>
+      <ul>
+        <li>- Weight: 1.5 kg - 2 kg</li>
+        <li>- Packaging: Vacuum-packed to ensure freshness</li>
+        <li>- Shelf Life: 2-3 days from delivery date</li>
+        <li>- Storage Instructions: Store in refrigerator at 0-4°C</li>
+      </ul>
+    `;
+
+    document.getElementById("product-summary").innerHTML = `
+      <img src="${product.image}" alt="${product.name}" class="product-image" />
+      <h2>${product.name} <span class="gm">${product.weight}</span></h2>
+      <p class="price">₹${product.price.toFixed(2)}</p>
+
+      <div class="info">
+        <span>Quality No : 1</span>
+        <span class="in-stock">❤️ In Stock : 13</span>
+      </div>
+
+      <div class="actions">
+        <button class="add-cart" onclick="addToCart()">Add to cart</button>
+        <button class="buy-now" onclick="buyNow()">Buy Now</button>
+      </div>
+    `;
+
+    function addToCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(item => item.id === product.id);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ ...product });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Product added to cart!");
+    }
+
+    function buyNow() {
+      addToCart();
+      window.location.href = "Home.html"; // Adjust as needed
+    }
+  </script>
+</body>
+</html>
